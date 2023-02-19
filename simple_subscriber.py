@@ -11,7 +11,7 @@ def callback(data):
     pub.publish(num)
 
 def simple_subscriber():
-    rospy.init_node('simple_subscriber', anonymous=True)
+    rospy.init_node('simple_subscriber')
 
     rospy.Subscriber('my_random_float', Float32, callback)
 
