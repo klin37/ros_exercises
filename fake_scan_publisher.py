@@ -6,7 +6,7 @@ from std_msgs.msg import Header
 import numpy as np
 
 def fake_scan_publisher():
-    pub = rospy.Publisher('fake_scan', LaserScan)
+    pub = rospy.Publisher('fake_scan', LaserScan, queue_size=50)
     rospy.init_node('fake_scan_publisher')
     rate = rospy.Rate(20)
     while not rospy.is_shutdown():

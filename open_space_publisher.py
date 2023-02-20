@@ -13,7 +13,7 @@ def callback(data):
     msg = OpenSpace(angle = angle, distance = dist)
     # topic_dist = rospy.Publisher('open_space/distance', Float32)
     # topic_angle = rospy.Publisher('open_space/angle', Float32)
-    pub = rospy.Publisher('open_space', OpenSpace)
+    pub = rospy.Publisher('open_space', OpenSpace, queue_size=50)
     # rospy.loginfo(dist)
     # rospy.loginfo(angle)
     rospy.loginfo(msg)
