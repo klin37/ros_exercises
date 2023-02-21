@@ -13,7 +13,7 @@ def callback(data):
     msg = OpenSpace(angle = angle, distance = dist)
     # topic_dist = rospy.Publisher('open_space/distance', Float32)
     # topic_angle = rospy.Publisher('open_space/angle', Float32)
-    publisher = rospy.get_param('~publisher', 'open_space')
+    publisher = rospy.get_param('publisher', 'open_space')
     pub = rospy.Publisher(publisher, OpenSpace, queue_size=50)
     # rospy.loginfo(dist)
     # rospy.loginfo(angle)
@@ -24,7 +24,7 @@ def callback(data):
 
 def open_space_publisher():
     rospy.init_node('open_space_publisher')
-    subscriber = rospy.get_param('~subscriber', 'fake_scan')
+    subscriber = rospy.get_param('subscriber', 'fake_scan')
     rospy.Subscriber(subscriber, LaserScan, callback)
 
     rospy.spin()

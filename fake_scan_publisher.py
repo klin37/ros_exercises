@@ -6,16 +6,16 @@ from std_msgs.msg import Header
 import numpy as np
 
 def fake_scan_publisher():
-    topic = rospy.get_param('~topic', 'fake_scan')
+    topic = rospy.get_param('topic', 'fake_scan')
     pub = rospy.Publisher(topic, LaserScan, queue_size=50)
     rospy.init_node('fake_scan_publisher')
-    publish_rate = rospy.get_param('~rate', 20)
+    publish_rate = rospy.get_param('rate', 20)
     rate = rospy.Rate(publish_rate)
-    angle_min = rospy.get_param('~angle_min', -2*np.pi/3)
-    angle_max = rospy.get_param('~angle_max', 2*np.pi/3)
-    range_min = rospy.get_param('~range_min', 1.0)
-    range_max = rospy.get_param('~range_max', 10.0)
-    angle_increment = rospy.get_param('~angle_increment', np.pi/300)
+    angle_min = rospy.get_param('angle_min', -2*np.pi/3)
+    angle_max = rospy.get_param('angle_max', 2*np.pi/3)
+    range_min = rospy.get_param('range_min', 1.0)
+    range_max = rospy.get_param('range_max', 10.0)
+    angle_increment = rospy.get_param('angle_increment', np.pi/300)
 
     while not rospy.is_shutdown():
         now = rospy.get_rostime()
